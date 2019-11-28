@@ -1,0 +1,122 @@
+* {
+	box-sizing: border-box;
+}
+body {
+	font-family: 'Montserrat', sans-serif;
+	line-height: 1.6;
+	margin: 0;
+	min-height: 100vh;
+  background-image: url(https://image.cnbcfm.com/api/v1/image/105974854-1560871721487gettyimages-1156523621.jpeg?v=1562007606&w=1400&h=950);
+background-size: cover;
+}
+main{
+  width: 800px;
+margin: auto;
+background-color: #ede8e4;
+padding: 10px;
+margin-top: 20px;
+border-radius: 10px;
+}
+
+
+}
+
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+
+a {
+	text-decoration: none;
+}
+
+
+
+.logo {
+	margin: 0;
+	font-size: 1.45em;
+	width: 410px;
+	padding-left: 200px;
+  border-radius: 10px;
+}
+
+.main-nav {
+	margin-top: 5px;
+
+}
+.logo a,
+.main-nav a {
+	padding: 10px 50px;
+	text-transform: uppercase;
+	text-align: center;
+	display: block;
+}
+
+.main-nav a {
+	color: white;
+	font-size: .99em;
+}
+
+.main-nav a:hover {
+	color: #718daa;
+
+}
+
+.logo:hover{
+  -webkit-transform: rotate(360deg);
+  transition-duration: 3s;
+}
+
+.header {
+	padding-top: .5em;
+	padding-bottom: .2em;
+	border: 1px solid #a2a2a2;
+	background-color: #390c78;
+	-webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+p{
+	margin-top: 60px;
+}
+
+#mark{
+	float: right;
+	width: 200px;
+	margin: 40px;
+
+}
+#privacy{
+	height: 400px;
+	width: 100%;
+}
+
+#adicted{
+	float: right;
+	margin: 30px;
+	height: 150px;
+}
+
+#sikkerhet{
+	width: 300px;
+}
+.grid{
+	margin: auto;
+	width: 400px;
+	margin-top: 50px;
+	display: grid;
+	grid-gap: 15px;
+	grid-template-columns: 1fr 1fr;
+
+}
+.tips:hover{
+	transform: scale(1.08);
+}

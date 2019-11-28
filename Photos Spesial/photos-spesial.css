@@ -1,0 +1,103 @@
+
+
+body{
+  margin:0px; /*vigjerner margen rundt hele nettsiden*/
+  font-family: serif; /*setter en skriftype på hele nettsiden*/
+}
+
+nav{
+  background-color: #e3e3e3;
+  display: flex; /*gjør navigasjonsbaren til en flex box*/
+  margin-bottom: 10px;
+  justify-content: space-around;
+  border-radius: 20px;
+
+
+}
+nav a{ /*velger alle a elementer som ligger inni nav*/
+  color: black; /*velger skriftfarge*/
+  text-decoration: none; /*fjerner understrek*/
+  padding: 25px; /*lager 25px med "luft" rundt lenkene*/
+}
+.active{ /* velger klassen active inne i nav */
+  background-color: #BFBFBF; /*setter bakgrunnsfarge på elementet som er active*/
+}
+nav a:hover:not(.active){ /*velger a-element som musen er over inne i nav, men ikke elemter som har klassen active*/
+  transform: scale(1.08);
+  transition: 0.5s;
+
+}
+
+a:hover{
+  transform: scale(1.08);
+}
+
+
+.forside{
+  text-align: center;
+  padding: 7%;
+  background-image: url(https://www.creativelive.com/blog/wp-content/uploads/2016/11/full.jpeg);
+  background-position: center;
+  background-size: cover;
+  text-shadow: 1px 1px #f0f0f0;
+
+}
+h1{
+  font-size: 50px;
+  font-family: serif;
+}
+h3{
+  font-family: serif;
+  font-size: 20px;
+  color: black;
+
+}
+a{
+  text-decoration: none;
+}
+
+
+.studio{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  margin: 10px;
+  grid-gap: 10px;
+}
+.studio img{
+  Width: 100%;
+  height: 300px;
+}
+
+
+.skifter{
+  height: 400px;
+  width: 600px;
+  background-size: cover;
+}
+
+body{
+  animation: 100ms ease-in-out infinite color-change;
+
+}
+
+
+@keyframes bgcolor {
+    0% {
+        background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTXkATxCMgpf_DtWbQI030b3VewJ7zD8KvjrRyE1GfMqc9fLLd8);
+    }
+
+    30% {
+        background: url(http://sunraysheet.co/wp-content/uploads/2019/08/vector-of-a-cartoon-cow-standing-with-glass-milk-coloring-page-outline.jpg);
+    }
+
+    60% {
+        background: url(http://images.unsplash.com/photo-1533134486753-c833f0ed4866?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjI0MX0);
+    }
+
+    90% {
+        background: url(http://images.unsplash.com/photo-1533134486753-c833f0ed4866?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjI0MX0);
+    }
+
+    100% {
+    }
+}

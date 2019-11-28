@@ -1,0 +1,40 @@
+*{
+  margin: 0;
+}
+body{
+  background-image: url(https://iso.500px.com/wp-content/uploads/2014/07/big-one.jpg);
+  background-size: cover;
+}
+
+/* For navigasjonsbaren*/
+header{
+  height: 110px;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav {
+  display: flex;
+  background-color: #0007;
+  width: 100%;
+  align-items: center;
+}
+
+nav a{
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  margin: 25px 35px;
+}
+
+nav a:hover{
+  opacity: .5;
+  transform: scale(1.08);
+}
+
+@media screen and (max-width:600px){
+  nav a{
+    font-size: 20px;
+    margin: 25px 20px
+  }
+}

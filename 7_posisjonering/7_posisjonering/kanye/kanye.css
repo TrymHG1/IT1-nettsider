@@ -1,0 +1,70 @@
+main /*selektor*/{
+  width /*egenskap*/: 700px /*verdi*/;
+}
+nav/*selektor*/{
+  text-decoration /*egenskap*/: none/*verdi*/;
+  background-color: brown;
+  padding: 20px;
+  margin: 20px;
+}
+
+nav a{
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  margin: 20px;
+}
+
+p{
+  text-align: justify; /* Drar ut teksten til hele bredden*/
+}
+
+#bilde1{
+  float: left; /* Legger bilde til venstre */
+  width: 100px;
+  margin-right: 10px;
+}
+#bilde2{
+  float: right;
+  width: 200px;
+  margin-left: 10px;
+}
+#bilde3{
+  float: left;
+  width: 150px;
+}
+
+main{
+  width: 900px;
+  margin: auto;
+}
+.album{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 15px;
+}
+.album img{
+  width: 100%;
+}
+.album img:hover{
+  filter: blur(5px);
+  transition: 0.7s;
+}
+.album div{
+  position: relative;
+}
+.album div p{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  opacity: 0;
+}
+.album div:hover p{
+  opacity: 1;
+  transition: 0.7s;
+}

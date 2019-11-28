@@ -1,0 +1,103 @@
+*{
+  margin: 0;
+}
+
+/* For navigasjonsbaren*/
+header{
+  height: 110px;
+  background-color: #e3e3e3;
+  display: flex;
+  justify-content: space-around;
+}
+#logo{
+  width: 100px;
+  margin: 5px;
+}
+#logo:hover{
+  transform: scale(1.08);
+  opacity: .7;
+}
+nav {
+  display: flex;
+  align-items: center;
+}
+nav a{
+  color: black;
+  text-decoration: none;
+  font-size: 30px;
+  margin: 25px 35px;
+}
+nav a:hover{
+  opacity: .5;
+  transform: scale(1.08);
+}
+/* For navigasjonsbaren*/
+
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    min-height: 100vh;
+    overflow: hidden;
+
+}
+/*tekster*/
+p{
+  font-size: 20px;
+  font-family: helvetica;
+}
+h3{
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+/*tekster*/
+/*slides */
+    .glider h1{
+      font-size: 40px;
+      padding: 30px 150px;
+
+    }
+    .slides:hover{
+      opacity: .9;
+      transform: scale(1.07);
+    }
+    .slides {
+        width: 500%;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        margin-left: 0;
+        transition: 1s;
+    }
+    .slides > div {
+        text-align: center;
+    }
+    .slides > div > img {
+        width: 80%;
+        user-select: none;
+    }
+    /*slides */
+.hovedside{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  margin: 100px;
+}
+.hovedsiden-overskrift{
+  font-size: 40px;
+  justify-content: center;
+}
+.commuting{
+  width: 50%;
+
+}
+
+@media screen and (max-width:600px){
+  nav a{
+    font-size: 20px;
+    margin: 25px 20px
+  }
+  .glider h1{
+    font-size: 24px
+  }
+}

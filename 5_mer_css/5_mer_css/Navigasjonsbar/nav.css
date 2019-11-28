@@ -1,0 +1,24 @@
+body{
+  margin:0px; /*vigjerner margen rundt hele nettsiden*/
+  font-family: helvetica; /*setter en skriftype på hele nettsiden*/
+}
+
+nav{
+  background-color: #1565c0;
+  display: flex; /*gjør navigasjonsbaren til en flex box*/
+
+}
+nav a{ /*velger alle a elementer som ligger inni nav*/
+  color: white; /*velger skriftfarge*/
+  text-decoration: none; /*fjerner understrek*/
+  padding: 25px; /*lager 25px med "luft" rundt lenkene*/
+}
+.active{ /* velger klassen active inne i nav */
+  background-color: #0d47a1; /*setter bakgrunnsfarge på elementet som er active*/
+}
+nav a:hover:not(.active){ /*velger a-element som musen er over inne i nav, men ikke elemter som har klassen active*/
+  background-color: #82b1ff;
+  transform: scale(1.05);
+  transform: rotate(360deg);
+  transition: 1s;
+}

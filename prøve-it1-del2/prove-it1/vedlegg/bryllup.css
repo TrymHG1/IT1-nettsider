@@ -1,0 +1,62 @@
+main /*selektor*/{
+  width /*egenskap*/: 1000px /*verdi*/;
+  background-color: #ab9b9a;
+  margin: auto;
+  padding: 20px;
+}
+nav/*selektor*/{
+  text-decoration /*egenskap*/: none/*verdi*/;
+  background-color: #ab9b9a;
+  padding: 20px;
+  margin: 20px;
+}
+
+nav a{
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  margin: 20px;
+}
+
+#logo{
+  border-radius: 20px;
+  width: 150px;
+  position: absolute;
+  top: 110px;
+  left: 1110px;
+}
+
+.bursdagsfilm{
+  width: 300px;
+
+}
+
+#bdbilde{
+  width: 400px;
+  position: relative;
+  left:200px;
+
+}
+
+#klassefest{
+  width: 950px;
+  margin: 20px;;
+}
+
+
+.bildene{
+  display: grid;
+  grid-template-columns:
+}
+
+
+
+
+
+
+footer {
+  position: absolute;
+  margin-top: 250px;
+  text-align: justify;
+  background-color: #82b1ff;
+}

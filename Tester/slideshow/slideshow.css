@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+}
+h1 {
+    margin-top: 0;
+    padding-top: 10px;
+    text-align: center;
+}
+body {
+    background-color: #eee;
+}
+main {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    min-height: 100vh;
+    overflow: hidden;
+}
+.slides {
+    width: 500%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin-left: 0;
+    transition: 1s;
+}
+.slides > div {
+    text-align: center;
+}
+.slides > div > img {
+    width: 80%;
+    user-select: none;
+}

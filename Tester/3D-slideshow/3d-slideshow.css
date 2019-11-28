@@ -1,0 +1,49 @@
+.slideshow{
+  margin: o auto;
+  padding-top: 50px;
+  height: 700px;
+  background: skyblue;
+  box-sizing: border-box;
+}
+
+
+.content{
+  margin: auto;
+  width: 190px;
+  perspective: 100px;
+  position: relative;
+  padding-top: 80px;
+
+}
+
+
+.content-carrosel{
+  width: 100%;
+  position: absolute;
+  float: right;
+  animation: rotar 15s infinite linear;
+  transform-style: preserve-3d;
+}
+.content-carrosel:hover{
+  animation-play-state: paused;
+  cursor: pointer;
+
+}
+.content-carrosel figure{
+  width: 100%;
+  height: 120px;
+  border: 1px solid #4d44d;
+  overflow: hidden;
+  position: absolute;
+}
+.content-carrosel figure:nth-child(1) {
+  transform: rotateY(0deg) translateZ(300px);
+}
+}
+.content-carrosel figure:nth-child(2) {
+  transform: rotateY(120deg) translateZ(300px);
+}
+}
+.content-carrosel figure:nth-child(3) {
+  transform: rotateY(240deg) translateZ(300px);
+}

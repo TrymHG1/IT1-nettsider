@@ -1,0 +1,59 @@
+body{
+  background-color: lightgrey;
+
+}
+header{
+  background-color: lightblue;
+
+}
+h1{
+  font-size: 64px;
+  width: 250px;
+}
+
+/* ID*/
+#mainOverskrift{
+  font-size: 12px;
+}
+#p1{
+  background-color: lightblue;
+  font-size: 16px;
+}
+#p2{
+  background-color: red;
+  font-size: 14px;
+}
+
+/* Klasse*/
+.sisteavsnittene{
+  background-color: lightblue
+}
+
+/* Pseudoselector*/
+p::first-letter{
+  font-size: 32px;
+}
+p::first-line{
+  text-decoration: underline;
+}
+p::after{
+  content: " Dette er et fint avsnitt";
+}
+p::before{
+  content: "haha"
+}
+
+
+/*Pseudoklasse*/
+h1:hover{
+  background-color: black;
+  color: white;
+  transform: scale(1.02);
+  box-shadow: red 50px 50px;
+
+}
+
+/* Kombinasjon av selektorer */
+li{
+  list-style-type: none;
+}

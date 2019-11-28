@@ -1,0 +1,64 @@
+header{
+  margin-left: 30px;
+}
+
+body{
+  margin-left: 35px;
+  background-image: url("https://images.bonnier.cloud/files/ill/production/2018/10/14034609/iceglobe.jpg?auto=compress&fit=crop&min-w=600&min-h=315&max-w=1200&max-h=630");
+background-size: cover;
+
+}
+#nytt{
+font-size: 30px;
+text-align: center;
+}
+
+
+#slutten{
+font-size: 30px;
+text-align: center;
+}
+header{
+  font-size: 50px;
+}
+#logo{
+  color: black;
+
+}
+#logo:hover{
+  transform:scale(1.02)
+}
+
+footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: blue;
+  color: white;
+  text-align: center;
+  font-size: 25px;
+}
+footer:hover{
+  transform:scale(1.02)
+}
+.container{
+
+}
+header{
+  text-align: left;
+  font-family: sans-serif;
+
+}
+iframe{
+  width: 1000px;
+  height: 600px;
+}
+
+ul{
+  list-style-type: none;
+}
+a{
+  color: white;
+  text-decoration: none;
+}

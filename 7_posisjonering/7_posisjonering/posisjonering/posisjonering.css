@@ -1,0 +1,30 @@
+body{
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  font: 20px Arial;
+}
+
+p{
+  border: solid black 3px;
+  background-color: cyan;
+  padding: 5px;
+}
+
+.posisjon1{
+
+}
+.posisjon2{
+  background-color: yellow;
+position: relative; /* Kan også bruke ""absolute" for å si hvor mange px fra kantene istedet for andre objekter*/
+  top: 70px;
+  left: 180px;
+
+span{
+  background-color: pink;
+  border: solid black 1px;
+}
+
+img{
+  width: 100%;
+}
