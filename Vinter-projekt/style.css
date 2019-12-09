@@ -1,8 +1,12 @@
 *{
   margin: 0;
-  -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
-
+  -webkit-animation: fadein 1s; /*Varigheten på fadeingen når man laster inn siden (Safari, Chrome and Opera > 12.1)*/
 }
+/*for å ikke kunne gå til høyre inni i siden fordi noe å lurt seg dit*/
+body{
+  overflow-x: hidden;
+}
+/*Fade når du laster inn siden*/
 @-webkit-keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
@@ -132,14 +136,29 @@ h3{
 
 .kostnad img{
   width: 95%;
+  transition: 0.3s;
 }
 .tid img{
-  width: 95%
+  width: 95%;
+  transition: 0.3s;
 }
 .ulemper img{
   width: 95%;
+  transition: 0.3s;
 }
 .kostnad img:hover{
+  transform: scale(1.5) translateY(20%);
+  transform-origin: left;
+}
+.tid img:hover{
+  transform: scale(1.08) translateY(7%);
+  transform-origin: center;
+  margin-bottom: 20%;
+
+}
+.ulemper img:hover{
+  transform: scale(1.5) translateY(20%);
+  transform-origin: right;
 }
 
 /*Dette er koden for nettbutikken*/
@@ -169,6 +188,29 @@ a{
   text-decoration: none;
   color: black;
 }
+/*Dette er koden for nettbutikken*/
+
+/*Dette er koden for nettsiden til en vare*/
+.itemsa{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 60px;
+  width: 100%;
+}
+.vara img{
+  width: 100%;
+
+}
+.vara a{
+  text-decoration: none;
+  color: black;
+  padding-left: 20px;
+
+
+}
+/*Dette er koden for nettsiden til en vare*/
+
+
 
 
 /*Footer*/
