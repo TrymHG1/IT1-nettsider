@@ -6,10 +6,7 @@
 body{
   overflow-x: hidden;
 }
-/*Fade når du laster inn siden*/
-@-webkit-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+
 }
 /*For å fjerne scrollbaren*/
 html::-webkit-scrollbar{
@@ -53,7 +50,6 @@ nav a:hover{
 main {
     max-width: 1200px;
     margin: 0 auto;
-    background-color: white;
     min-height: 100vh;
     overflow: hidden;
 
@@ -222,14 +218,12 @@ footer{
   padding: 2%;
 
 }
+
 footer li{
   color:#6b6b6b;
   margin-left: 5%;
 }
-footer h2{
-  color:#A1A8B4;
-  margin-left: 5%;
-}
+
 .footerGrid{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -241,12 +235,88 @@ footer h2{
 }
 /*Footer*/
 
+/*Hvordan nettsiden skal se ut om du bruker en enhet på under 900px*/
 @media screen and (max-width:600px){
+  .hovedside{
+    grid-template-columns: 1fr;
+    margin: 10px;
+    text-align: center;
+  }
+
+
+}
+/*Hvordan nettsiden skal se ut om du bruker en enhet på under 900px*/
+@media screen and (max-width:900px){
   nav a{
     font-size: 20px;
-    margin: 25px 20px
+    margin: 25px 20px;
   }
   .glider h1{
     font-size: 24px
+  }
+  .hovedside img{
+    width: 100%;
+  }
+  .sammenligning{
+    grid-template-columns: 1fr;
+    padding: 10%;
+  }
+  .hovedside{
+    grid-template-columns: 1fr;
+    margin: 10px;
+    text-align: center;
+  }
+
+}
+
+/*Hvordan nettsiden skal se ut om du bruker valig theme på PCen*/
+@media (prefers-color-scheme: light) {
+  /*Fade når du laster inn siden*/
+  @-webkit-keyframes fadein {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+  }
+}
+
+/*Hvordan nettsiden skal se ut om du bruker dark-mode theme på PCen*/
+@media (prefers-color-scheme: dark) {
+  header{
+    opacity: 0.5;
+  }
+  body {
+    background-color: black;
+    color: #ccc;
+  }
+
+  p{
+    color: #ccc;
+
+  }
+  h1{
+    color: #ccc;
+
+  }
+  h2{
+    color: #ccc;
+
+  }
+  h3{
+    color: #ccc;
+
+  }
+  h4{
+    color: #ccc;
+
+  }
+  li{
+    color: #ccc;
+
+  }
+
+  *{
+    opacity: .9;
+  }
+  .kostnad:hover{
+opacity: 10;
   }
 }
