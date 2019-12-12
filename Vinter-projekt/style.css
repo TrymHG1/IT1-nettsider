@@ -48,11 +48,10 @@ nav a:hover{
 
 /*alt informasjon skal ligge inni her :*/
 main {
-    max-width: 1200px;
+    max-width: 80%;
     margin: 0 auto;
     min-height: 100vh;
     overflow: hidden;
-
 }
 
 
@@ -66,6 +65,8 @@ h3{
   margin-bottom: 10px;
 }
 /*tekster*/
+
+
 /*Alt dette er for index-siden*/
 /*slides */
     .glider h1{
@@ -103,22 +104,18 @@ h3{
 
 .hovedside{
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 100%;
-  margin: 100px;
+  grid-template-columns: 30% 70%;
+  grid-gap: 50px;
+  margin: 50px;
+
 }
 .hovedsiden-overskrift{
   font-size: 50px;
-  justify-content: center;
   margin: 30px;
   text-align: center;
 }
-.commuting{
-  width: 50%;
-}
-.bilde {
-  float: left;
-}
+
+
 /*Alt dette er for hvorfor-siden*/
 .sammenlign-overskrift{
   text-align: center;
@@ -236,23 +233,20 @@ footer li{
 /*Footer*/
 
 /*Hvordan nettsiden skal se ut om du bruker en enhet på under 900px*/
-@media screen and (max-width:600px){
-  .hovedside{
-    grid-template-columns: 1fr;
-    margin: 10px;
-    text-align: center;
-  }
 
-
-}
 /*Hvordan nettsiden skal se ut om du bruker en enhet på under 900px*/
 @media screen and (max-width:900px){
+  main{
+    width: 100%;
+  }
+
   nav a{
     font-size: 20px;
     margin: 25px 20px;
   }
+
   .glider h1{
-    font-size: 24px
+    font-size: 24px;
   }
   .hovedside img{
     width: 100%;
@@ -260,13 +254,42 @@ footer li{
   .sammenligning{
     grid-template-columns: 1fr;
     padding: 10%;
-  }
-  .hovedside{
-    grid-template-columns: 1fr;
-    margin: 10px;
-    text-align: center;
+    transform: none;
   }
 
+  .hovedside{
+    grid-template-columns: 1fr;
+    margin-bottom: 30px;
+    text-align: center;
+    display: block;
+  }
+iframe{
+
+  display: block;
+padding-top: 10%;
+  }
+  .items{
+    grid-template-columns: 1fr;
+  }
+  .kostnad img:hover{
+    transform: scale(1) translateY(0);
+    transform-origin: left;
+  }
+  .tid img:hover{
+    transform: scale(1) translateY(0);
+    transform-origin: center;
+  margin-bottom: 0;
+  }
+  .ulemper img:hover{
+    transform: scale(1) translateY(0);
+    transform-origin: right;
+  }
+  .itemsa{
+    grid-template-columns:86%;
+  }
+  .beskrivelse{
+    padding: 0 0 30px 0;
+  }
 }
 
 /*Hvordan nettsiden skal se ut om du bruker valig theme på PCen*/
@@ -312,11 +335,18 @@ footer li{
     color: #ccc;
 
   }
+  #elsykkel{
+    color: skyblue;
+  }
 
   *{
-    opacity: .9;
+    opacity: .95;
   }
-  .kostnad:hover{
-opacity: 10;
+  footer{
+    opacity: .5;
+    text-decoration: underline blue;
+  }
+  footer li{
+    color: black;
   }
 }
