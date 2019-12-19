@@ -292,6 +292,9 @@ padding-top: 10%;
 }
 
 @media screen and (max-width:415px){
+  main{
+    width: 100%;
+  }
 
 
   .logo{
@@ -310,6 +313,7 @@ padding-top: 10%;
   }
   .hovedside img{
     width: 100%;
+    margin-top: 20px;
   }
   .sammenligning{
     grid-template-columns: 1fr;
@@ -344,7 +348,7 @@ padding-top: 10%;
   }
   .items{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-column-gap: 60px;
     margin: 40px;
   }
