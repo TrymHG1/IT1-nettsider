@@ -6,8 +6,6 @@
 body{
   overflow-x: hidden;
 }
-
-}
 /*For å fjerne scrollbaren*/
 html::-webkit-scrollbar{
   display: none;
@@ -177,6 +175,9 @@ h3{
   padding-top: 90px;
 
 }
+.vare:hover{
+  shadow: 10px black;
+}
 a{
   text-decoration: none;
   color: black;
@@ -294,6 +295,7 @@ padding-top: 10%;
 @media screen and (max-width:415px){
   main{
     width: 100%;
+    max-width: 100%;
   }
 
 
@@ -314,6 +316,10 @@ padding-top: 10%;
   .hovedside img{
     width: 100%;
     margin-top: 20px;
+
+  }
+  .text{
+    text-align: left;
   }
   .sammenligning{
     grid-template-columns: 1fr;
@@ -423,4 +429,108 @@ padding-top: 10%;
   footer li{
     color: black;
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Her er det bare masse kode for forsøk og piss som kan være fett.*/
+.swing{
+  padding: 30px;
+  margin: 20px;
+  background-color: green;
+  width: 50px;
+  border-radius: 10px;
+}
+@-webkit-keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+       transform: translateX(-5px);
+    }
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+    }
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+.swing:hover
+{
+        -webkit-animation: swing 1s ease;
+        animation: swing 1s ease;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
 }
