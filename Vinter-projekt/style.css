@@ -22,11 +22,11 @@ header{
   display: flex;
   justify-content: space-around;
 }
-#logo{
+.logo{
   width: 100px;
   margin: 5px;
 }
-#logo:hover{
+.logo:hover{
   transform: scale(1.08);
   opacity: .7;
 }
@@ -232,65 +232,6 @@ footer li{
 }
 /*Footer*/
 
-@media screen and (max-width:410px){
-  main{
-    width: 100%;
-  }
-  header{
-    width: 100%;
-  }
-
-  nav a{
-    font-size: 20px;
-    margin: 25px 20px;
-  }
-
-  .glider h1{
-    font-size: 24px;
-  }
-  .hovedside img{
-    width: 100%;
-  }
-  .sammenligning{
-    grid-template-columns: 1fr;
-    padding: 10%;
-    transform: none;
-  }
-
-  .hovedside{
-    grid-template-columns: 1fr;
-    margin-bottom: 30px;
-    text-align: center;
-    display: block;
-  }
-iframe{
-
-  display: block;
-padding-top: 10%;
-  }
-  .items{
-    grid-template-columns: 1fr;
-  }
-  .kostnad img:hover{
-    transform: scale(1) translateY(0);
-    transform-origin: left;
-  }
-  .tid img:hover{
-    transform: scale(1) translateY(0);
-    transform-origin: center;
-  margin-bottom: 0;
-  }
-  .ulemper img:hover{
-    transform: scale(1) translateY(0);
-    transform-origin: right;
-  }
-  .itemsa{
-    grid-template-columns:86%;
-  }
-  .beskrivelse{
-    padding: 0 0 30px 0;
-  }
-}
 
 /*Hvordan nettsiden skal se ut om du bruker en enhet på under 900px*/
 @media screen and (max-width:900px){
@@ -349,6 +290,77 @@ padding-top: 10%;
     padding: 0 0 30px 0;
   }
 }
+
+@media screen and (max-width:415px){
+
+
+  .logo{
+    display: none;
+  }
+
+  nav a{
+    font-size: 15px;
+  }
+
+  .glider h1{
+    font-size: 24px;
+  }
+  .glider{
+  justify-content: space-around;
+  }
+  .hovedside img{
+    width: 100%;
+  }
+  .sammenligning{
+    grid-template-columns: 1fr;
+    padding: 10%;
+    transform: none;
+  }
+
+  .hovedside{
+    grid-template-columns: 1fr;
+    margin-bottom: 30px;
+    text-align: center;
+    display: block;
+  }
+iframe{
+
+  display: block;
+padding-top: 10%;
+  }
+
+  .kostnad img:hover{
+    transform: scale(1) translateY(0);
+    transform-origin: left;
+  }
+  .tid img:hover{
+    transform: scale(1) translateY(0);
+    transform-origin: center;
+  margin-bottom: 0;
+  }
+  .ulemper img:hover{
+    transform: scale(1) translateY(0);
+    transform-origin: right;
+  }
+  .items{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 60px;
+    margin: 40px;
+  }
+  .vare img{
+    width: 90%;
+    text-decoration: none;
+  }
+
+  .itemsa{
+    grid-template-columns:86%;
+  }
+  .beskrivelse{
+    padding: 0 0 30px 0;
+  }
+}
+
 
 /*Hvordan nettsiden skal se ut om du bruker valig theme på PCen*/
 @media (prefers-color-scheme: light) {
