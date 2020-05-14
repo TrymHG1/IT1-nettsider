@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+          <!-- The core Firebase JS SDK is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
+
+      <!-- TODO: Add SDKs for Firebase products that you want to use
+           https://firebase.google.com/docs/web/setup#available-libraries -->
+
+      <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyB8T5FXq1kzY2IGmCwJ3jpl3VNDsWTsH3g",
+          authDomain: "chat-og-mer-it1-tors.firebaseapp.com",
+          databaseURL: "https://chat-og-mer-it1-tors.firebaseio.com",
+          projectId: "chat-og-mer-it1-tors",
+          storageBucket: "chat-og-mer-it1-tors.appspot.com",
+          messagingSenderId: "1085004864441",
+          appId: "1:1085004864441:web:8cce344767f39d00dab468"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      </script>
+  </head>
+  <body>
+    <h1>Denne siden inneholder javascript, sjekk konsolen</h1>
+
+    <input type="text" id="inpNavn" placeholder="Hvem er du">
+
+    <input type="text" id="inpMelding" placeholder="Hva sier du">
+
+    <button id="btn">GO!</button>
+
+    <div id="divMeldinger"></div>
+
+<script src="./style.js" charset="utf-8"></script>
+
+  </body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCvtcvPx7objFrVUZSAwrIAc6YYM-mwdb4",
+        authDomain: "pc-butikk.firebaseapp.com",
+        databaseURL: "https://pc-butikk.firebaseio.com",
+        projectId: "pc-butikk",
+        storageBucket: "pc-butikk.appspot.com",
+        messagingSenderId: "1026376589085",
+        appId: "1:1026376589085:web:f544a9abbb5765e907cbf4"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <title>Pc Butikken</title>
+    <link rel="stylesheet" href="style2.css">
+  </head>
+  <body>
+    <header>
+      <h1>Pc Basen</h1>
+      <div class="navigasjon">
+        <nav>
+            <ul>
+              <div class="menu-btn">
+              <div class="menu-btn__burger"></div>
+              </div>
+              <ul class="burgermeny">
+                <li onclick="hentAllePc()">
+                  visAlle
+                </li>
+              <li onclick="hentAlleHome()">
+                visHome
+              </li>
+              <li onclick="hentAlleGaming()">
+                visGaming
+              </li>
+              <li onclick="hentAlleOffice()">
+                visOffice
+              </li>
+              <li>
+                <a href="handlekurv.html">Vis handlekurv</a>
+              </li>
+              </ul>
+
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <section id="secPc">
+    </section>
+
+    <script type="text/javascript">
+
+    const db = firebase.firestore();
+    const pc = db.collection("pc");
+    const handlekurv = db.collection("pcerIHandlekurv");
+
+
+    const url = new URL(window.location.href);
+    const id = url.searchParams.get("id");
+
+    const visPc = async (id) => {
+    const svar = await pc.doc(id).get();
+    lagHTML(svar.data());
+}
+
+    visPc(id); // Funksjonskall, gjør at funksjonen visDyr kjøres når siden lastes
+
+
+    const lagHTML = (pc) => {
+    secPc.innerHTML += `
+    <div><img src=${pc.Bilde} alt="Bilde av ${pc.Navn}"></div>
+    <div><h1>${pc.Navn}</h1>
+                    <p>Type: ${pc.Type}</p>
+                    <p>Prosessor: ${pc.Prosessor}</p>
+                    <p>Grafikkort: ${pc.Grafikkort}</p>
+                    <p>Lagringsplass: ${pc.Lagringsplass}</p>
+                    <p>RAM: ${pc.Ram}</p>
+                    <h3>Pris: ${pc.Pris}</h3>
+                    <button onclick="leggIHandlekurv('${id}')">Kjøp</button>
+                    </div>
+
+
+                <p id="Beskrivelse"> Beskrivelse: ${pc.Beskrivelse}</p>
+
+        `;
+}
+
+
+
+
+
+const leggIHandlekurv = async (id) => {
+  await handlekurv.add({
+    pcId: id
+  });
+  alert("PC lagt til i handlekurv");
+}
+
+    </script>
+
+
+
+
+
+
+  </body>
+</html>

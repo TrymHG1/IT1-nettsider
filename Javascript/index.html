@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      body{
+        transition: 0.7s;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="Overskrift1">Min Overskrift</h1>
+    <h1 id="Overskrift2">Min Overskrift</h1>
+    <h1 id="Overskrift3">Min Overskrift</h1>
+
+    <input id="inpFarge" type="color" name="" value="red">
+
+    <p id="lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <script type="text/javascript">
+      const Overskrift1 = document.querySelector("#Overskrift1")
+      const Overskrift2 = document.querySelector("#Overskrift2")
+      const Overskrift3 = document.querySelector("#Overskrift3")
+      const inpFarge = document.querySelector("#inpFarge")
+
+      Overskrift1.innerHTML = "Dette er overskrift 1."
+      Overskrift2.innerHTML = "Dette er overskrift 2."
+      Overskrift3.innerHTML = "Dette er overskrift 3."
+
+      Overskrift3.onclick = function(){
+        Overskrift3.innerHTML = "Du klikket på meg";
+      }
+
+
+      const lorem = document.querySelector("#lorem")
+    //  lorem.innerHTML = "Dette er lorem."
+      lorem.onclick = function(){
+      lorem.innerHTML = "Du klikket på lorem";
+    }
+
+    inpFarge.onchange = function (){
+      Overskrift3.innerHTML = "Du endret farge";
+      Overskrift3.style.backgroundColor = inpFarge.value;
+      document.body.style.backgroundColor = inpFarge.value;
+      console.log(inpFarge.value);
+    }
+
+
+    </script>
+
+  </body>
+</html>

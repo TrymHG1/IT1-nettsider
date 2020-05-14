@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+
+}
+
+h1 {
+  font-size: 38px;
+}
+
+.navigasjon{
+  display: flex;
+  align-content: center;
+  grid-gap: 8px;
+  font-size: 20px;
+
+}
+
+ul, li{
+  margin: 8px;
+
+}
+
+.spørringer{
+  margin-left: auto;
+  display: flex;
+  justify-content: space-around;
+  height: 40px;
+}
+
+body {
+  min-height: 100vh;
+  margin: 5%;
+  background-image: url(https://image-cdn.essentiallysports.com/wp-content/uploads/20200411125507/capsule_616x353.jpg);
+  background-size: 100%;
+}
+
+main{
+  background-color: white;
+  margin: 5%;
+  padding: 5%;
+}
+
+.menu-btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  transition: all .5s ease-in-out;
+}
+.menu-btn__burger {
+  width: 50px;
+  height: 6px;
+  background: black;
+  border-radius: 5px;
+  transition: all .5s ease-in-out;
+}
+.menu-btn__burger::before,
+.menu-btn__burger::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 6px;
+  background: black;
+  border-radius: 5px;
+  transition: all .5s ease-in-out;
+}
+.menu-btn__burger::before {
+  transform: translateY(-16px);
+}
+.menu-btn__burger::after {
+  transform: translateY(16px);
+}
+/* ANIMATION */
+.menu-btn.open .menu-btn__burger {
+  transform: translateX(-50px);
+  background: transparent;
+  box-shadow: none;
+}
+.menu-btn.open .menu-btn__burger::before {
+  transform: rotate(45deg) translate(35px, -35px);
+}
+.menu-btn.open .menu-btn__burger::after {
+  transform: rotate(-45deg) translate(35px, 35px);
+}
+
+.burgermeny{
+  display: none;
+}
+
+.burgermeny.open{
+  display: block;
+
+}
+
+
+#secPc{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#secPc img{
+  width: 100%;
+}
+
+.varer p, h3{
+  width: 100%;
+  color: black;
+}
+.varer{
+}
+
+a{
+  text-decoration: none;
+}
+
+.varer:hover{
+transform: scale(1);
+}
+
+
+@media screen and (min-width: 0) {
+  #secPc{
+    display: grid;
+    grid-template-columns: 1fr;
+
+  }
+  #selSorter{
+  margin-left: 1%;
+  margin-top: 1%; }
+
+  }
+@media screen and (min-width: 600px) {
+  #secPc{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+  }
+  #selSorter{
+  margin-left: 1%;
+  margin-top: 1%; }
+
+  }

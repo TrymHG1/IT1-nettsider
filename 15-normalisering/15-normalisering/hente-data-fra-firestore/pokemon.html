@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Pokemon DB</title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyDs3XiVv9bxJ7008TIdm2UDf0j8qItKKWM",
+        authDomain: "kontakter-af34e.firebaseapp.com",
+        databaseURL: "https://kontakter-af34e.firebaseio.com",
+        projectId: "kontakter-af34e",
+        storageBucket: "kontakter-af34e.appspot.com",
+        messagingSenderId: "886522146104",
+        appId: "1:886522146104:web:4b7da97c35775d092065cd"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+  </head>
+  <body>
+
+    <section id="secPokemon">
+      Laster...
+
+    </section>
+
+
+    <script type="text/javascript">
+      const db = firebase.firestore();
+
+      const pokemonDB = db.collection("pokemon");
+
+      const pokeElement = document.querySelector("#secPokemon");
+      const lagHTML = (snapshot) => {
+        snapshot.forEach( element => {
+          pokeElement.innerHTML += `
+            <section>${element}</section>
+          `
+        })
+      }
+
+
+      const skrivResultat = (snapshot) => {
+        snapshot.forEach(element => console.log(element.data()));
+      }
+
+      pokemonDB.get().then(snapshot => lagHTML(snapshot));
+
+
+    </script>
+  </body>
+</html>

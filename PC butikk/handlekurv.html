@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+        <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#available-libraries -->
+
+        <script>
+          // Your web app's Firebase configuration
+          var firebaseConfig = {
+            apiKey: "AIzaSyCvtcvPx7objFrVUZSAwrIAc6YYM-mwdb4",
+            authDomain: "pc-butikk.firebaseapp.com",
+            databaseURL: "https://pc-butikk.firebaseio.com",
+            projectId: "pc-butikk",
+            storageBucket: "pc-butikk.appspot.com",
+            messagingSenderId: "1026376589085",
+            appId: "1:1026376589085:web:f544a9abbb5765e907cbf4"
+          };
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+        </script>
+
+        <title>Pc Butikken</title>
+        <link rel="stylesheet" href="style2.css">  </head>
+  <body>
+
+    <section id="secHandlekurv">
+
+    </section>
+
+
+
+        <form onsubmit="kjopPcer(event)">
+          <label>Epost:</label>
+          <input id="inpEpost" type="email" placeholder="Skriv epost" required />
+          <button type="submit">Kjøp nå</button>
+        </form>
+
+
+
+    <script type="text/javascript">
+    // Referanser til HTML-elementer
+    const secHandlekurv = document.querySelector("#secHandlekurv");
+    const inpEpost = document.querySelector("#inpEpost")
+
+    const db = firebase.firestore();
+
+              // referanser til html-elementer
+              const pcer = db.collection("pc");
+              const handlekurv = db.collection("pcerIHandlekurv");
+              const kjop = db.collection("kjop")
+
+
+
+                // funksjon som henter alle pcer fra databasen
+        const hentHandlekurv = async () => {
+          console.log("hei")
+          const svar = await handlekurv.get(); // Henter hele handlekurven
+          console.log(svar)
+          for await (vare of svar.docs) {
+              const pcId = vare.data().pcId; // Får pcId fra varen i handlekurven
+              const pcSvar = await pcer.doc(pcId).get(); // Spør etter den aktuelle pcen fra pcer-kolleksjonen
+              console.log(pcSvar)
+              lagHTML(pcId, pcSvar.data()); // Kjører funksjonen lagHTML på hver bok
+          }
+        }
+
+hentHandlekurv(); // Kjører funksjonen hentAlle
+
+
+
+    const lagHTML = (id,pc) => {
+        secHandlekurv.innerHTML += `
+            <div class="varer">
+                <img src=${pc.Bilde} alt="Bilde av ${pc.Navn}">
+                <h3>${pc.Navn}</h3>
+                <p>Type: ${pc.Type}</p>
+                <p>Prosessor: ${pc.Prosessor}</p>
+                <p>Lagringsplass: ${pc.Lagringsplass}</p>
+                <p>Ram: ${pc.Ram}</p>
+                <p>Pris: ${pc.Pris}</p>
+                <a href="pc.html?id=${id}">Les mer om ${pc.Navn}</a>
+
+            </div>
+        `;
+    }
+
+
+
+    const kjopPcer = async (event) => {
+  event.preventDefault();
+  const svar = await handlekurv.get();
+  for await(const pcIHandlekurv of svar.docs){
+      const pcId = pcIHandlekurv.data().pcId;
+      // Legger boken i kjop-tabellen
+      await kjop.add({
+        pcId: pcId,
+        epost: inpEpost.value
+      });
+
+      // Sletter varen fra handlekurven
+      await handlekurv.doc(pcIHandlekurv.id).delete();
+  }
+  // Sletter innholdet i secHandlekurv
+  secHandlekurv.innerHTML = ``;
+}
+
+
+
+
+
+
+    </script>
+
+
+
+
+  </body>
+</html>

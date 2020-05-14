@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDpaNgfsZqjsXjTwQdhxrwQsztvYvk7QJ4",
+    authDomain: "land-c7b67.firebaseapp.com",
+    databaseURL: "https://land-c7b67.firebaseio.com",
+    projectId: "land-c7b67",
+    storageBucket: "land-c7b67.appspot.com",
+    messagingSenderId: "461072325438",
+    appId: "1:461072325438:web:46519a14856dd827d96a6f"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+
+
+        <section id="secLand">
+          Laster...
+
+        </section>
+
+        <script type="text/javascript">
+          const landEl = document.querySelector("#secLand");
+
+          const db = firebase.firestore();
+          const landDB = db.collection("land")
+
+          const skrivLand = (snapshot) => {
+            snapshot.forEach( element => console.log(element.data()));
+          }
+
+          const lagHTML = (snapshot) => {
+            landEl.innerHTML = ``; //sletter innholdet i landEl//
+            snapshot.forEach( element => {
+              const land = element.data(); // går gjennom hvert land//
+              landEl.innerHTML +=`
+              <section class="land">
+              <h2>${land["navn"]}</h2>
+              <p>${land["hovedstad"]}</p>
+              <p>${land["befolkning"]}</p>
+              <p>${land["areal"]}</p>
+              <p>${land["kontinent"]}</p>
+              <img src="${land["bilde"]}" alt="">
+              </section>
+              `
+            })
+          }
+          landDB.get().then( snapshot => lagHTML(snapshot));
+        </script>
+
+
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>500 brukere</title>
+    <!-- Lim inn kode fra firebase her-->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-firestore.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyB8T5FXq1kzY2IGmCwJ3jpl3VNDsWTsH3g",
+        authDomain: "chat-og-mer-it1-tors.firebaseapp.com",
+        databaseURL: "https://chat-og-mer-it1-tors.firebaseio.com",
+        projectId: "chat-og-mer-it1-tors",
+        storageBucket: "chat-og-mer-it1-tors.appspot.com",
+        messagingSenderId: "1085004864441",
+        appId: "1:1085004864441:web:8cce344767f39d00dab468"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+  </head>
+  <body>
+    <h1>Legg til brukere i databasen din</h1>
+
+    <p>Lim inn kode fra firebase i HTML-fila, og trykk på knappen.</p>
+
+    <button>Legg til 500 brukere</button>
+
+    <p id="tekst"></p>
+
+    <script type="text/javascript">
+      const knapp = document.querySelector("button");
+      const tekst = document.querySelector("#tekst");
+
+      const leggTilBrukere = async () => {
+        try{
+
+          const db = firebase.firestore();
+          const randompeople = db.collection("randompeople");
+
+          const response = await fetch("https://randomuser.me/api/?results=500");
+          const json = await response.json();
+          for (const user of json.results) {
+            randompeople.doc(user.email).set({
+              firstName: user.name.first,
+              lastName: user.name.last,
+              title: user.name.title,
+              age: user.dob.age,
+              city: user.location.city,
+              country: user.location.country,
+              picture: user.picture.large
+            })
+          }
+          tekst.innerHTML = `500 brukere ble lagt inn i databasen din. Sjekk firebase`;
+        }
+        catch(err){
+          tekst.innerHTML = `Noe gikk galt. Har du husket å lime inn kode fra firebase i HTML-filen?`
+        }
+      }
+
+      knapp.onclick = leggTilBrukere;
+
+      const db = firebase.firestore();
+      const randompeople = db.collection("randompeople");
+      const visPerson = async (epost) => {
+        const ref = randompeople.doc(epost)
+        const p = await ref.get();
+        const person = p.data();
+        console.log(person.title, person.first, person.last);
+      }
+      visPerson("adam.douglas@example.com")
+      }
+
+    </script>
+  </body>
+</html>

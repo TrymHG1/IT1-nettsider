@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+            <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#available-libraries -->
+
+        <script>
+          // Your web app's Firebase configuration
+          var firebaseConfig = {
+            apiKey: "AIzaSyDpaNgfsZqjsXjTwQdhxrwQsztvYvk7QJ4",
+            authDomain: "land-c7b67.firebaseapp.com",
+            databaseURL: "https://land-c7b67.firebaseio.com",
+            projectId: "land-c7b67",
+            storageBucket: "land-c7b67.appspot.com",
+            messagingSenderId: "461072325438",
+            appId: "1:461072325438:web:6dcdc4fa1a052b03d96a6f"
+          };
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+        </script>
+  </head>
+  <body>
+    <header>
+      <h1>Land</h1>
+      <nav>
+        <p onclick="sorterBefolkning()">Sorter etter innbyggere</p>
+        <p onclick="sorterAlfabetisk()">Sorter alfabetisk</p>
+        <p onclick="sorterAlfabetiskNederstforst()">Sorter alfabetisk fra nederst opp</p>
+        <p onclick="visEuropa()">Europa</p>
+        <p onclick="visUSA()">USA</p>
+        <p onclick="visAsia()">Asia</p>
+      </nav>
+    </header>
+
+    <main>
+      <section id="secLand">
+
+      </section>
+
+    </main>
+    <footer>
+
+    </footer>
+    <script type="text/javascript">
+    // referanser til HTML-elementer
+      const landelement = document.querySelector("#secLand");
+
+      // referanser til firestore-databasen
+      const db = firebase.firestore();
+      const landDB = db.collection("land");
+
+      //spørringer
+      landDB.get().then(snapshot => skrivResultat(snapshot));
+
+      function sorterAlfabetisk(){
+        landelement.innerHTML = ``;
+        landDB.orderBy("navn").get().then(snapshot => skrivResultat(snapshot));
+      }
+      function sorterBefolkning(){
+        landelement.innerHTML = ``;
+        landDB.orderBy("befolkning").get().then(snapshot => skrivResultat(snapshot));
+      }
+      function sorterAlfabetiskNederstforst(){
+        landelement.innerHTML = ``;
+        landDB.orderBy("navn","desc").get().then(snapshot => skrivResultat(snapshot));
+      }
+      function visEuropa(){
+        landelement.innerHTML = ``;
+        landDB.where("kontinent","==","Europa").get().then(snapshot => skrivResultat(snapshot));
+      }
+      function visUSA(){
+        landelement.innerHTML = ``;
+        landDB.where("kontinent","==","USA").get().then(snapshot => skrivResultat(snapshot));
+      }
+      function visAsia(){
+        landelement.innerHTML = ``;
+        landDB.where("kontinent","==","Asia").get().then(snapshot => skrivResultat(snapshot));
+      }
+
+
+      //Javascript-funsksjoner
+      function skrivResultat(snapshot){
+        //funskon som gjør noe med hver rad i kolleksjonen
+        snapshot.forEach(snap => lagHTML(snap.data()))
+      }
+
+      function lagHTML(land){
+        landelement.innerHTML += `
+        <section class="land">
+          <h3>${land["navn"]}</h3>
+          <p>Hovedstad: ${land["hovedstad"]}</p>
+          <p>Innbyggere: ${land["befolkning"]}</p>
+          <img src=${land["bilde"]}>
+        </section>
+        `
+      }
+    </script>
+  </body>
+</html>

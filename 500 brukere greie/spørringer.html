@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyB8T5FXq1kzY2IGmCwJ3jpl3VNDsWTsH3g",
+    authDomain: "chat-og-mer-it1-tors.firebaseapp.com",
+    databaseURL: "https://chat-og-mer-it1-tors.firebaseio.com",
+    projectId: "chat-og-mer-it1-tors",
+    storageBucket: "chat-og-mer-it1-tors.appspot.com",
+    messagingSenderId: "1085004864441",
+    appId: "1:1085004864441:web:8cce344767f39d00dab468"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+  </head>
+  <body>
+    <button onclick="visFraEpost('adrian.jacobs@example.com')" type="button" name="button">Vis fra epost</button>
+    <button onclick="visIrer()" type="button" name="button">Vis Irer</button>
+    <button onclick="visIrerOgIraner()" type="button" name="button">Vis Irer og Iranere</button>
+    <button onclick="visOver70()" type="button" name="button">Vis alle over 70 år</button>
+    <button onclick="visNorgeUnder41()" type="button" name="button">Vis alle fra Norge og under 41 år</button>
+    <button onclick="visSortertFornavn()" type="button" name="button">Vis alle sortert etter fornavn</button>
+    <button onclick="visSortertSynkende()" type="button" name="button">Vis alle sortert etter alder (synkende)</button>
+
+    <section id="secBrukere">
+      Laster Brukere
+    </section>
+
+    <header>
+      <h1>Personer</h1>
+      <input type="text" id="inpMinAge" placeholder="Søk etter fornavn">
+      <input type="text" id="inpMaxAge" placeholder="Søk etter etternavn">
+      <button id="btn">Search</button>
+    </header>
+
+    <script type="text/javascript">
+      // referanser til databasen
+      const db = firebase.firestore();
+      const randompeople = db.collection("randompeople");
+
+      //Referanser til HTML-elementet
+      const secBrukere = document.querySelector("#secBrukere")
+
+      //funkjsom for å lage HTML-kode
+      const lagHTML = (person) => {
+        secBrukere.innerHTML += `
+          <div>Navn: ${person.firstName}</div>
+          <div>Etternavn: ${person.lastName}</div>
+          <div>Alder: ${person.age}</div>
+          <div>Land: ${person.country}</div>
+          <div>By: ${person.ciry}</div>
+          <img src="${person.picture}">
+
+        `;
+
+      }
+
+      const visFraEpost = async (epost) => {
+        const ref = randompeople.doc(epost)
+        const svar = await ref.get();
+        console.log(svar.data());
+        lagHTML(svar.data());
+      }
+
+      const visIrer = async () => {
+        const irer = await randompeople.where("country","==","Ireland").get();
+        for(const ire of irer.docs) {
+          console.log(ire.data());
+          lagHTML(ire.data());
+
+        }
+      }
+
+      const visPersoner = async () => {
+        const personer = await randompeople.where("country", "in", ["Ireland", "Iran"]).get();
+        for(const person of personer.docs) {
+
+        }
+      }
+
+      btn.onclick = async () => {
+        const minage = inpMinAge.value;
+        const maxage = inpMaxAge.value;
+        const svar = await randompeople.where("firstName","==",minage).where("lastName","==",maxage).get();
+        console.log("søk etter person");
+        console.log(svar.docs);
+        for(const person of svar.docs) {
+          console.log(person.data());
+
+        }
+  }
+
+  const visOver70 = async () => {
+  const personer = await randompeople.where("age", ">", 70).get();
+  for(const person of personer.docs) {
+    console.log(person.data());
+    lagHTML(person.data());
+  }
+}
+
+const visNorgeUnder41 = async () => {
+  const personer = await randompeople
+  .where("age", "<=", 40)
+  .where("country", "==", "Norway")
+  .get();
+  for(const person of personer.docs) {
+    console.log(person.data());
+    lagHTML(person.data());
+  }
+}
+
+const visSortertFornavn = async () => {
+  const personer = await randompeople
+  .orderBy("firstName")
+  .limit(20)
+  .get();
+  for(const person of personer.docs) {
+    console.log(person.data());
+    lagHTML(person.data());
+  }
+}
+
+const visSortertSynkende = async () => {
+  const personer = await randompeople
+  .orderBy("age", "desc")
+  .limit(20)
+  .get();
+  for(const person of personer.docs) {
+    console.log(person.data());
+    lagHTML(person.data());
+  }
+}
+
+
+
+
+
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pc butikken</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Lim inn kode fra firestore her -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCvtcvPx7objFrVUZSAwrIAc6YYM-mwdb4",
+    authDomain: "pc-butikk.firebaseapp.com",
+    databaseURL: "https://pc-butikk.firebaseio.com",
+    projectId: "pc-butikk",
+    storageBucket: "pc-butikk.appspot.com",
+    messagingSenderId: "1026376589085",
+    appId: "1:1026376589085:web:f544a9abbb5765e907cbf4"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+</head>
+<body>
+    <header>
+        <h1>Pc Basen</h1>
+        <div class="navigasjon">
+          <nav>
+              <ul>
+                <div class="menu-btn">
+                <div class="menu-btn__burger"></div>
+                </div>
+                <ul class="burgermeny">
+                  <li onclick="hentAllePc()">
+                    Alle
+                  </li>
+                <li onclick="hentAlleHome()">
+                  Home
+                </li>
+                <li onclick="hentAlleGaming()">
+                  Gaming
+                </li>
+                <li onclick="hentAlleOffice()">
+                  Office
+                </li>
+                <li>
+                  <a href="handlekurv.html">Åpne handlekurv</a>
+                </li>
+                </ul>
+
+              </ul>
+          </nav>
+
+          <div class="spørringer">
+
+                      <select id="selSorter" onchange="hentAllePc()">
+                        <option value="asc">Pris: Lav til høy</option>
+                        <option value="desc">Pris: Høy til lav</option>
+                      </select>
+                      <select id="selRam" onchange="hentAlleRam()">
+                        <option value="asc">RAM: Lav til høy</option>
+                        <option value="desc">RAM: Høy til lav</option>
+                      </select>
+                      <select id="selLagring" onchange="hentAlleLagring()">
+                        <option value="asc">Lagringsplass: Lav til høy</option>
+                        <option value="desc">Lagringsplass: Høy til lav</option>
+                      </select>
+
+          </div>
+
+
+
+        </div>
+
+    </header>
+    <main>
+
+          <section id="secPc">
+          </section>
+
+
+          <script type="text/javascript">
+            const secPc = document.querySelector("#secPc");
+
+            const db = firebase.firestore();
+            const pc = db.collection("pc");
+
+
+
+
+
+
+
+          const lagHTML = (id,pc) => {
+              secPc.innerHTML += `
+                  <div class="varer">
+                      <a href="pc.html?id=${id}">
+                      <img src=${pc.Bilde} alt="Bilde av ${pc.Navn}">
+                      <h3>${pc.Navn}</h3>
+                      <p>Type: ${pc.Type}</p>
+                      <p>Prosessor: ${pc.Prosessor}</p>
+                      <p>Lagringsplass: ${pc.Lagringsplass} GB</p>
+                      <p>Ram: ${pc.Ram} GB</p>
+                      <p>Pris: ${pc.Pris},-</p>
+                      Les mer om ${pc.Navn}</a>
+
+                  </div>
+              `;
+          }
+
+
+
+
+          const selSorter = document.querySelector("#selSorter");
+          const selRam = document.querySelector("#selRam");
+          const selLagring = document.querySelector("#selLagring");
+
+          // Spørringsfunksjoner
+          const hentAllePc = async () => {
+            secPc.innerHTML = ``; // Sletter innholdet i secPc.
+            const svar = await pc.orderBy("Pris",selSorter.value).get();
+            for(const pc of svar.docs){
+                lagHTML(pc.id,pc.data());
+            }
+          }
+          const hentAlleRam = async () => {
+            secPc.innerHTML = ``; // Sletter innholdet i secPc.
+            const svar = await pc.orderBy("Ram",selRam.value).get();
+            for(const pc of svar.docs){
+              lagHTML(pc.id,pc.data());
+            }
+          }
+          const hentAlleLagring = async () => {
+            secPc.innerHTML = ``; // Sletter innholdet i secPc.
+            const svar = await pc.orderBy("Lagringsplass",selLagring.value).get();
+            for(const pc of svar.docs){
+              lagHTML(pc.id,pc.data());
+            }
+          }
+          hentAllePc()
+
+
+          const hentAlleHome = async () => {
+            secPc.innerHTML = ``; // Sletter innholdet i secPc.
+            const svar = await pc.where("Type","==","Home").orderBy("Pris",selSorter.value).get();
+            for(const pc of svar.docs){
+              lagHTML(pc.id,pc.data());
+            }
+          }
+          const hentAlleGaming = async () => {
+            secPc.innerHTML = ``; // Sletter innholdet i secPc.
+            const svar = await pc.where("Type","==","Gaming").orderBy("Pris",selSorter.value).get();
+            for(const pc of svar.docs){
+              lagHTML(pc.id,pc.data());
+            }
+          }
+          const hentAlleOffice = async () => {
+            secPc.innerHTML = ``; // Sletter innholdet i secPc.
+            const svar = await pc.where("Type","==","Office").orderBy("Pris",selSorter.value).get();
+            for(const pc of svar.docs){
+              lagHTML(pc.id,pc.data());
+            }
+          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+          // Funksjon som kjører når nettsiden lastes.
+          //hentAlleHome();
+          </script>
+
+
+
+    </main>
+
+
+    <script src="main.js"></script>
+
+
+</body>
+</html>

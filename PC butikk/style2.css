@@ -1,0 +1,15 @@
+body{
+}
+
+
+#secPc{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+}
+#Beskrivelse{
+  grid-column: span 2;
+}
+img{
+  width: 100%;
+}
