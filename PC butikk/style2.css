@@ -8,9 +8,13 @@ header{
   justify-content: space-between;
 }
 
-
+#logo{
+  text-decoration: none;
+  color: black;
+}
 .navigasjon{
   margin: 20px;
+  font-size: 30px;
 }
 
 li{
@@ -21,25 +25,43 @@ li{
 }
 
 h2{
-  font-size: 26px;
+  font-size: 30px;
 }
 
+h3{
+  font-size: 30px;
+}
 
 #secPc{
   display: grid;
   grid-template-columns: 1fr 1fr;
+  font-size: 20px;
+
+
+
 }
 
 
 
 #Beskrivelse{
-  grid-column: span 2;
-  border-radius: 4px;
-  margin: 50px;
   padding: 10px;
-  font-size: 20px;
-  border: solid;
+  font-size: 40px;
+  margin-right: 10%;
 }
 img{
   width: 100%;
+}
+
+
+.handleBilde{
+  height: 20vw;
+  width: 30vw;
+}
+#secHandlekurv{
+  display: flex;
+  border-bottom: solid;
+
+}
+form{
+  padding: 10px;
 }

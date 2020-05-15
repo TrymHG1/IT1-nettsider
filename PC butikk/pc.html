@@ -29,7 +29,10 @@
   </head>
   <body>
     <header>
-      <h1>Pc Basen</h1>
+      <a  id="logo" href="index.html">
+          <h1> Pc Basen</h1>
+      </a>
+
       <div class="navigasjon">
         <nav>
               <li onclick="hentAlleHome()">
@@ -39,9 +42,7 @@
               <li>
                 <a href="handlekurv.html">Åpne handlekurv</a>
               </li>
-              </ul>
 
-            </ul>
         </nav>
     </header>
 
@@ -71,18 +72,19 @@
     const lagHTML = (pc) => {
     secPc.innerHTML += `
     <div><img src=${pc.Bilde} alt="Bilde av ${pc.Navn}"></div>
-    <div class="info"><h2>${pc.Navn}</h2>
-                    <p>Type: ${pc.Type}</p>
-                    <p>Prosessor: ${pc.Prosessor}</p>
-                    <p>Grafikkort: ${pc.Grafikkort}</p>
-                    <p>Lagringsplass: ${pc.Lagringsplass}GB</p>
-                    <p>RAM: ${pc.Ram}GB</p>
-                    <h3>Pris: ${pc.Pris},-</h3>
-                    <button onclick="leggIHandlekurv('${id}')">Kjøp</button>
-                    </div>
+    <div class="info">
+      <h2>${pc.Navn}</h2>
+      <p>Type: ${pc.Type}</p>
+      <p>Prosessor: ${pc.Prosessor}</p>
+      <p>Grafikkort: ${pc.Grafikkort}</p>
+      <p>Lagringsplass: ${pc.Lagringsplass}GB</p>
+      <p>RAM: ${pc.Ram}GB</p>
+      <h3>Pris: ${pc.Pris},-</h3>
+      <button onclick="leggIHandlekurv('${id}')">Kjøp</button>
+      <p id="Beskrivelse"> <h2>Beskrivelse:</h2>${pc.Beskrivelse}</p>
+    </div>
 
 
-                <p id="Beskrivelse"> ${pc.Beskrivelse}</p>
 
         `;
 }

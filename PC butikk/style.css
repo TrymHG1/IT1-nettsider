@@ -5,7 +5,7 @@
 }
 
 h1 {
-  font-size: 38px;
+  font-size: 43px;
 }
 
 .navigasjon{
@@ -27,19 +27,19 @@ li:hover{
 .spørringer{
   margin-left: auto;
   display: flex;
-  justify-content: space-around;
   height: 40px;
 }
 
 body {
   min-height: 100vh;
-  margin: 5%;
   background-color: white;
+  margin: 5%;
+  margin-bottom: 0;
+
 }
 
 main{
   background-color: white;
-  margin: 5%;
   padding: 5%;
 
 }
@@ -99,18 +99,22 @@ main{
 
 }
 
-#selSorter{
+#selSorter, #selRam, #selLagring{
   border: solid;
   border-radius: 4px;
+  margin: 0;
 }
-
+#selSorter{
+  padding: 5px;
+}
 
 #secPc{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  border: solid;
-  border-radius: 4px;
   padding: 10px;
+
+
+
 
 }
 
@@ -124,26 +128,18 @@ main{
 }
 
 
+
+
 a{
   text-decoration: none;
 }
 
 #banner{
-  filter: blur(px);
+  text-align:center;
+  margin-left: 10%;
+  width: 70vw;
 }
 
-.sidebanner{
-  display: flex;
-  grid-template-columns: 1fr 1fr;
-  width: 100%;
-}
-.hoyre, .venstre{
-  height: 400px;
-  width:40px;
-}
-.hoyre{
-  float: right;
-}
 
 
 footer{
@@ -160,19 +156,10 @@ footer{
     grid-template-columns: 1fr;
 
   }
-  #selSorter{
-  margin-left: 1%;
-  margin-top: 1%; }
-
   }
 @media screen and (min-width: 600px) {
   #secPc{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-
-  }
-  #selSorter{
-  margin-left: 1%;
-  margin-top: 1%; }
 
   }
