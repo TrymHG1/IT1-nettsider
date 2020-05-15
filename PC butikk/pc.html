@@ -32,25 +32,12 @@
       <h1>Pc Basen</h1>
       <div class="navigasjon">
         <nav>
-            <ul>
-              <div class="menu-btn">
-              <div class="menu-btn__burger"></div>
-              </div>
-              <ul class="burgermeny">
-                <li onclick="hentAllePc()">
-                  visAlle
-                </li>
               <li onclick="hentAlleHome()">
-                visHome
+                <a href="index.html">Hjem</a>
               </li>
-              <li onclick="hentAlleGaming()">
-                visGaming
-              </li>
-              <li onclick="hentAlleOffice()">
-                visOffice
-              </li>
+
               <li>
-                <a href="handlekurv.html">Vis handlekurv</a>
+                <a href="handlekurv.html">Åpne handlekurv</a>
               </li>
               </ul>
 
@@ -84,18 +71,18 @@
     const lagHTML = (pc) => {
     secPc.innerHTML += `
     <div><img src=${pc.Bilde} alt="Bilde av ${pc.Navn}"></div>
-    <div><h1>${pc.Navn}</h1>
+    <div class="info"><h2>${pc.Navn}</h2>
                     <p>Type: ${pc.Type}</p>
                     <p>Prosessor: ${pc.Prosessor}</p>
                     <p>Grafikkort: ${pc.Grafikkort}</p>
-                    <p>Lagringsplass: ${pc.Lagringsplass}</p>
-                    <p>RAM: ${pc.Ram}</p>
-                    <h3>Pris: ${pc.Pris}</h3>
+                    <p>Lagringsplass: ${pc.Lagringsplass}GB</p>
+                    <p>RAM: ${pc.Ram}GB</p>
+                    <h3>Pris: ${pc.Pris},-</h3>
                     <button onclick="leggIHandlekurv('${id}')">Kjøp</button>
                     </div>
 
 
-                <p id="Beskrivelse"> Beskrivelse: ${pc.Beskrivelse}</p>
+                <p id="Beskrivelse"> ${pc.Beskrivelse}</p>
 
         `;
 }
@@ -103,10 +90,10 @@
 
 
 
-
 const leggIHandlekurv = async (id) => {
   await handlekurv.add({
-    pcId: id
+    pcId: id,
+    tid: firebase.firestore.FieldValue.serverTimestamp()
   });
   alert("PC lagt til i handlekurv");
 }

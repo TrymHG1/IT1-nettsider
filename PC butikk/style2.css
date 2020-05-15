@@ -1,14 +1,44 @@
 body{
+  margin: 15px;
+}
+
+header{
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+}
+
+
+.navigasjon{
+  margin: 20px;
+}
+
+li{
+  display: inline;
+  padding: 5px;
+  font-size: 20px;
+  border: 5px;
+}
+
+h2{
+  font-size: 26px;
 }
 
 
 #secPc{
   display: grid;
   grid-template-columns: 1fr 1fr;
-
 }
+
+
+
 #Beskrivelse{
   grid-column: span 2;
+  border-radius: 4px;
+  margin: 50px;
+  padding: 10px;
+  font-size: 20px;
+  border: solid;
 }
 img{
   width: 100%;

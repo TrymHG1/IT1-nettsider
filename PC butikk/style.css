@@ -20,6 +20,9 @@ ul, li{
   margin: 8px;
 
 }
+li:hover{
+  cursor: pointer;
+}
 
 .spørringer{
   margin-left: auto;
@@ -31,14 +34,14 @@ ul, li{
 body {
   min-height: 100vh;
   margin: 5%;
-  background-image: url(https://image-cdn.essentiallysports.com/wp-content/uploads/20200411125507/capsule_616x353.jpg);
-  background-size: 100%;
+  background-color: white;
 }
 
 main{
   background-color: white;
   margin: 5%;
   padding: 5%;
+
 }
 
 .menu-btn {
@@ -96,10 +99,19 @@ main{
 
 }
 
+#selSorter{
+  border: solid;
+  border-radius: 4px;
+}
+
 
 #secPc{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  border: solid;
+  border-radius: 4px;
+  padding: 10px;
+
 }
 
 #secPc img{
@@ -110,17 +122,37 @@ main{
   width: 100%;
   color: black;
 }
-.varer{
-}
+
 
 a{
   text-decoration: none;
 }
 
-.varer:hover{
-transform: scale(1);
+#banner{
+  filter: blur(px);
 }
 
+.sidebanner{
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+.hoyre, .venstre{
+  height: 400px;
+  width:40px;
+}
+.hoyre{
+  float: right;
+}
+
+
+footer{
+  text-align: center;
+  background-image: linear-gradient(white, grey);
+  width: 100%;
+  padding-top: 10px;
+  height: 40px;
+}
 
 @media screen and (min-width: 0) {
   #secPc{

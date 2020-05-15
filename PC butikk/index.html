@@ -30,6 +30,7 @@
 
 </head>
 <body>
+  <img id="banner" src="img/oppgrader-redigert.png" alt="">
     <header>
         <h1>Pc Basen</h1>
         <div class="navigasjon">
@@ -39,6 +40,7 @@
                 <div class="menu-btn__burger"></div>
                 </div>
                 <ul class="burgermeny">
+                  <p>Type:</p>
                   <li onclick="hentAllePc()">
                     Alle
                   </li>
@@ -65,11 +67,11 @@
                         <option value="asc">Pris: Lav til høy</option>
                         <option value="desc">Pris: Høy til lav</option>
                       </select>
-                      <select id="selRam" onchange="hentAlleRam()">
+                      <select id="selSorter" onchange="hentAlleRam()">
                         <option value="asc">RAM: Lav til høy</option>
                         <option value="desc">RAM: Høy til lav</option>
                       </select>
-                      <select id="selLagring" onchange="hentAlleLagring()">
+                      <select id="selSorter" onchange="hentAlleLagring()">
                         <option value="asc">Lagringsplass: Lav til høy</option>
                         <option value="desc">Lagringsplass: Høy til lav</option>
                       </select>
@@ -81,6 +83,8 @@
         </div>
 
     </header>
+
+
     <main>
 
           <section id="secPc">
@@ -194,5 +198,17 @@
     <script src="main.js"></script>
 
 
+
+
 </body>
+<!-- Footer -->
+<footer class="page-footer font-small blue">
+
+<!-- Copyright -->
+<div class="footer-copyright text-center py-3">© 2020 Copyright:
+<a href="https://www.plagiarismtoday.com/2020/01/06/copyright-in-2020-and-beyond/"> pc-basen.com</a>
+</div>
+<!-- Copyright -->
+
+</footer>
 </html>
